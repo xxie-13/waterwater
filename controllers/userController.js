@@ -59,7 +59,7 @@ exports.getAllUsers = (req, res) => {
 //POST — Create
 exports.createUser=(req,res)=>{
     const {mnumber, name, cubic_meter, totAmount, stats}=req.body;  
-    connection.query('INSERT INTO water_bills (meter_number,consumer_name,cubic_meters_used,total_amount,status,) VALUES (?,?,?,?,?)',[mnumber, name, cubic_meter, totAmount, stats],(err,result)=>{
+    connection.query('INSERT INTO water_bills (meter_number,consumer_name,cubic_meters_used,total_amount,status) VALUES (?,?,?,?,?)',[mnumber, name, cubic_meter, totAmount, stats],(err,result)=>{
         if(err) throw err;
         res.json({message:'User created successfully',id:result.insertId});
     });
